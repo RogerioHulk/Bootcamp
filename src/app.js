@@ -32,10 +32,10 @@ app.get("/repositories", (request, response) => {
 app.post("/repositories", (request, response) => {
   const body = request.body;
   const repository = {
-    id: uuid(),
+    id   : uuid(),
     title: body.title,
-    url: body.url,
-    techs: [ body.techs ],
+    url  : body.url,
+    techs: body.techs,
     likes: 0
   }
 
@@ -58,7 +58,7 @@ app.put("/repositories/:id", (request, response) => {
   const { likes } = repository;
   repository = { id, title, url, techs, likes }
   repositories[index] = repository;
-  return response.json( repository )
+  return response.json( repository );
 });
 
 //====--  Exclusão  --====
